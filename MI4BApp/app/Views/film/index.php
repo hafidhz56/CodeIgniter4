@@ -23,10 +23,10 @@
           <a class="nav-link" href="/film">Semua Film</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Katagori Film</a>
+          <a class="nav-link" href="/genre/all">Katagori Genre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">Tentang Kami</a>
+          <a class="nav-link" href="#">Tentang Kami</a>
         </li>
       </ul>
     </div>
