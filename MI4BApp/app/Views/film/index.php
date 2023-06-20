@@ -10,6 +10,7 @@
 <body>
     <nav class="navbar navbar-expand bg-#DDA0DD" style="background-color: #DDA0DD;">
   <div class="container-fluid">
+  <img src="/assets/img/boruto.png" width="40" height="40" style="margin-right: 10px;">
     <a class="navbar-brand" href="#">LK_86</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -26,19 +27,23 @@
           <a class="nav-link" href="/genre/all">Katagori Genre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Tentang Kami</a>
+          <a class="nav-link" href="/about">Tentang Kami</a>
         </li>
       </ul>
     </div>
   </div>
     </nav>
 
+<?= $this->extend('layout/page_layout') ?>
+
+<?= $this->section('content') ?>
 <div class="container">
     <div class="row">
         <div class="col-mod-12">
             <table class="table table-hover">
                 <tr>
                     <th>No.</th>
+                    <th>Cover</th>
                     <th>Nama Film</th>
                     <th>Genre</th>
                     <th>Duration</th>
@@ -48,6 +53,7 @@
                 <?php foreach ($data_film as $data) : ?>
                     <tr>
                       <td><?= $i++; ?></td>
+                      <td><img width="50" src="assets/cover/<?= $data['cover']?>" alt=""></td>
                         <td><?= $data['nama_film']?></td>
                         <td><?= $data['nama_genre']?></td>
                         <td><?= $data['duration']?></td>
@@ -65,3 +71,4 @@
 </body>  
 
 </html
+<?= $this->endSection() ?>
