@@ -57,11 +57,47 @@ class Film extends BaseController
     public function add()
     {
        $data["genre"] = $this->genre->getAllData();
+       $data["errors"] = session('errors');
        return view("film/add", $data);
     }
 
     public function store()
     {
+       $validation = $this->validate([
+              'nama_film' => [
+              'rules'=> 'required',
+              'errors' => [ 
+                     'required'=> 'Kolom Nama Film Harus diisi'
+              ]
+              ],
+
+              'id_genre' => [
+                     'rules' =>'required', 
+                      'errors' => [
+                            'required' =>'Kolom Genre Harus diisi'
+              ]
+              ],
+              'duration' => [
+                      'rules'=> 'required',
+                      'errors' => [
+                             'required' =>'Kolom Durasi Harus diisi'
+              ]
+              ],
+              'cover' => [
+                      'rules'=> 'uploaded[cover]|mime_in[cover, image/jpg,image/jpeg, image/png]|max_size[cover,2048]',
+                      'errors'=> [
+                            'uploaded'=> 'Kolom Cover harus berisi file.',
+                            'nime_in' =>'Tipe file pada Kolon Cover harus berupa JPG, JPEG, atau PNG',
+                             'max_size' =>'Ukuran file pada Kolen Cover melebihi batas maksimum'
+              ]
+              ]
+              ]);
+
+              if (!$validation) {
+              $errors = \Config\services::validation()->getErrors();
+
+              return redirect()->back()->withInput()->with("errors", $errors);
+              }
         $image = $this->request->getFile('cover');
         // Generate nama file yang unik
         $imageName = $image->getRandomName();
@@ -74,6 +110,7 @@ class Film extends BaseController
             'cover'=> $imageName,
         ];
         $this->film->save($data);
+        session()->setFlashdata('success', 'Data berhasil disimpan.');
         return redirect()->to('/film');
     }
 }

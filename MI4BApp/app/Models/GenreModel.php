@@ -9,7 +9,7 @@ class GenreModel extends Model
     protected $table            = 'genre';   // Nama table yang ada di database
     protected $primaryKey       = 'id';     // Nama kolom yang menjadi primary key
     protected $useAutoIncrement = true;     // Beri nilai true jika terdapat autoincrement
-    protected $allowedFields    = ['nama_film', 'id_genre', 'duration', 'cover'];       // Digunakan untuk menentukan kolom mana saja yang dapat kita insert data
+    protected $allowFields      = [];       // Digunakan untuk menentukan kolom mana saja yang dapat kita insert data
 
     public function getAllData()
     {
