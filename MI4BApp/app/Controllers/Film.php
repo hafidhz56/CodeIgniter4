@@ -50,4 +50,9 @@ class Film extends BaseController
     {
            dd($this->film->getLimit());
     }
+
+    public function add()
+    {
+       return view("film/add");
+    }
 }

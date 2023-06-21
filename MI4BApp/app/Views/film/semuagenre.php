@@ -8,33 +8,6 @@
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand bg-warning" style="background-color: #DDA0DD;">
-  <div class="container-fluid">
-  <img src="/assets/img/boruto.png" width="40" height="40" style="margin-right: 10px;">
-    <a class="navbar-brand" href="#">LK_86</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Beranda</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/film">Semua Film</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/genre/all">Katagori Genre</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">Tentang Kami</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-    </nav>
-
-
 <?= $this->extend('layout/page_layout') ?>
 
 <?= $this->section('content') ?>
