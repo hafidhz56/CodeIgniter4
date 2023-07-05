@@ -181,5 +181,11 @@ class Film extends BaseController
        session()->setFlashData('success', 'Data berhasil diperbarui');
        return redirect()->to('/film');
    }
+   public function destroy($id)
+   {
+       $this->film->delete($id);
+       session()->setFlashdata('success', 'Data Berhasil Dihapus.');
+       return redirect()->to('/film');
+   }
 
 }

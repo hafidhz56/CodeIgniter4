@@ -47,7 +47,7 @@
                         <td><?= $data['duration']?></td>
                         <td>
                         <a href="/film/update/<?= $data["id"]; ?>" class="btn btn-success">Update</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+                        <a class="btn btn-danger" onclick="return confirmDelete()">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach;?>
@@ -57,6 +57,27 @@
 </div>
      <script>sr="/assets/js/bootstrap.min.js"></script>
 </body>  
+<script>
+    function confirmDelete() {
+        swal({
+                title: "Apakah Anda yakin?",
+                text: "setelah dihapus! data anda akan benar-benar hilang!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+
+                    window.location.href = "/film/destroy/<?= $data['id'] ?>";
+
+                } else {
+                    swal("Data tidak jadi dihapus!");
+                }
+            });
+    }
+</script>
+  <!-- sampai sini -->
 
 </html
 <?= $this->endSection() ?>
